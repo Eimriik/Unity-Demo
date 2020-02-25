@@ -53,7 +53,8 @@ namespace StudioEntropy.Reflection
         /// <summary>
         /// Gets or sets the value of the reflected property.
         /// </summary>
-        /// <exception cref="NullReferenceException">Thrown if <see cref="BaseReflector.Target"/> is null.</exception>
+        /// <exception cref="TargetException">If <see cref="BaseReflector.Target"/> is null and the reflected property
+        /// is non-static.</exception>
         public object Value
         {
             get => GetValue( Target );
@@ -94,7 +95,8 @@ namespace StudioEntropy.Reflection
         /// </summary>
         /// <param name="target">The object instance from which the value of the reflected property should be
         /// retrieved.</param>
-        /// <returns></returns>
+        /// <returns>The value of the reflected property.</returns>
+        /// <exception cref="TargetException">If the target is null and the reflected property is non-static.</exception>
         public object GetValue( object target )
         {
             return PropertyInfo.GetValue( target );
@@ -110,7 +112,8 @@ namespace StudioEntropy.Reflection
         /// <summary>
         /// Gets or sets the value of the reflected property.
         /// </summary>
-        /// <exception cref="NullReferenceException">Thrown if <see cref="BaseReflector.Target"/> is null.</exception>
+        /// <exception cref="TargetException">If <see cref="BaseReflector.Target"/> is null and the reflected property
+        /// is non-static.</exception>
         public TValue Value
         {
             get => GetValue( Target );
@@ -149,7 +152,8 @@ namespace StudioEntropy.Reflection
         /// Gets the value of the reflected field.
         /// </summary>
         /// <param name="target">The object instance from which the value of the reflected property should be retrieved.</param>
-        /// <returns></returns>
+        /// <returns>The value of the reflected property.</returns>
+        /// <exception cref="TargetException">If the target is null and the reflected property is non-static.</exception>
         public TValue GetValue( object target )
         {
             return ( TValue )PropertyInfo.GetValue( target );

@@ -53,7 +53,8 @@ namespace StudioEntropy.Reflection
         /// <summary>
         /// Gets or sets the value of the reflected field.
         /// </summary>
-        /// <exception cref="NullReferenceException">Thrown if <see cref="BaseReflector.Target"/> is null.</exception>
+        /// <exception cref="TargetException">If <see cref="BaseReflector.Target"/> is null and the reflected field is
+        /// non-static.</exception>
         public object Value
         {
             get => GetValue( Target );
@@ -94,7 +95,7 @@ namespace StudioEntropy.Reflection
         /// </summary>
         /// <param name="target">The object instance from which the value of the reflected field should be
         /// retrieved.</param>
-        /// <returns></returns>
+        /// <returns>The value of the refleted field.</returns>
         public object GetValue( object target )
         {
             return FieldInfo.GetValue( target );
@@ -110,7 +111,8 @@ namespace StudioEntropy.Reflection
         /// <summary>
         /// Gets or sets the value of the reflected field.
         /// </summary>
-        /// <exception cref="NullReferenceException">Thrown if <see cref="BaseReflector.Target"/> is null.</exception>
+        /// <exception cref="TargetException">If <see cref="BaseReflector.Target"/> is null and the reflected field is
+        /// non-static.</exception>
         public TValue Value
         {
             get => GetValue( Target );
@@ -140,6 +142,7 @@ namespace StudioEntropy.Reflection
         /// </summary>
         /// <param name="target">The object instance on which to assign the reflected fields value.</param>
         /// <param name="value">The new value that should be assigned to the reflected field.</param>
+        /// <exception cref="TargetException">If the target is null and the reflected field is non-static.</exception>
         public void SetValue( object target, TValue value )
         {
             FieldInfo.SetValue( target, value );
@@ -150,7 +153,8 @@ namespace StudioEntropy.Reflection
         /// </summary>
         /// <param name="target">The object instance from which the value of the reflected field should be
         /// retrieved.</param>
-        /// <returns></returns>
+        /// <returns>The value of the reflected field.</returns>
+        /// <exception cref="TargetException">If the target is null and the reflected field is non-static.</exception>
         public TValue GetValue( object target )
         {
             return ( TValue )FieldInfo.GetValue( target );
