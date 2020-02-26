@@ -123,10 +123,11 @@ namespace StudioEntropy.Reflection
         /// <summary>
         /// Constructs an instance of a property reflector.
         /// </summary>
+        /// <param name="type">The <see cref="Type"/> to retrieve a property from.</param>
         /// <param name="memberName">The name of the property to retrieve.</param>
         /// <param name="filter"><see cref="BindingFlags"/> filter to use when attempting to retrieve the property.</param>
-        public PropertyReflector( string memberName, BindingFlags filter = DefaultFilter )
-            : base( typeof( TValue ), memberName, filter ) { }
+        public PropertyReflector( Type type, string memberName, BindingFlags filter = DefaultFilter )
+            : base( type, memberName, filter ) { }
 
         /// <summary>
         /// Constructs an instance of a property reflector.
