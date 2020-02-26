@@ -104,7 +104,7 @@ namespace StudioEntropy.Demo.Tests
         }
 
         /// <summary>
-        /// A <see cref="InvalidCastException"/> is expected when accessing a reflected vield as the wrong type.
+        /// A <see cref="InvalidCastException"/> is expected when accessing a reflected field as the wrong type.
         /// </summary>
         [ Test ]
         public void Test_StronglyTyped_InvalidCast_Get( )
@@ -151,7 +151,7 @@ namespace StudioEntropy.Demo.Tests
         }
         
         /// <summary>
-        /// A <see cref="ArgumentException"/> is expected when accessing a reflected vield as the wrong type.
+        /// A <see cref="ArgumentException"/> is expected when accessing a reflected field as the wrong type.
         /// </summary>
         [ Test ]
         public void Test_StronglyTyped_InvalidCast_Set( )
