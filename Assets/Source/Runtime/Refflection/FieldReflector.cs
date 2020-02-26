@@ -118,14 +118,15 @@ namespace StudioEntropy.Reflection
             get => GetValue( Target );
             set => SetValue( Target, value );
         }
-        
+
         /// <summary>
         /// Constructs an instance of a reflector.
         /// </summary>
+        /// <param name="type">The <see cref="Type"/> to retrieve a member from.</param>
         /// <param name="memberName">The name of the member to retrieve.</param>
         /// <param name="filter"><see cref="BindingFlags"/> filter to use when attempting to retrieve the member.</param>
-        public FieldReflector( string memberName, BindingFlags filter = DefaultFilter )
-            : base( typeof( TValue ), memberName, filter ) { }
+        public FieldReflector( Type type, string memberName, BindingFlags filter = DefaultFilter )
+            : base( type, memberName, filter ) { }
 
         /// <summary>
         /// Constructs an instance of a reflector.
