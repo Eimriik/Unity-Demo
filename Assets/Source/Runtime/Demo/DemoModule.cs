@@ -1,6 +1,7 @@
 ﻿using StudioEntropy.Injection;
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 using Zenject;
 
@@ -39,5 +40,6 @@ namespace StudioEntropy.Demo
             } );
         }
     }
+
 
 }
